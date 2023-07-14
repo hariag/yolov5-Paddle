@@ -377,7 +377,9 @@ def train(hyp, opt, device, callbacks):  # hyp is path/to/hyp.yaml or hyp dictio
                     'model': model_half(deepcopy(de_parallel(model))),
                     'ema': model_half(deepcopy(ema.ema)),
                     'updates': ema.updates,
+                    'state_dict': ema.ema.state_dict(),
                     'optimizer': optimizer.state_dict(),
+                    'names': names,
                     'opt': vars(opt),
                     'git': GIT_INFO,  # {remote, branch, commit} if a git repo
                     'date': datetime.now().isoformat()}
