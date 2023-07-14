@@ -5,6 +5,13 @@ python train.py --img 640 --batch 64 --epochs 100 --data data/sl_coco.yaml --cfg
 ```
 # convert to pdmodel
 ```sh
+# paddle-bfloat          0.1.7
+# paddle2onnx            1.0.6
+# paddlelite             2.11
+# paddlepaddle-gpu       2.4.2.post117
+# docker exec -it paddle bash
+
+nvidia-docker run --name paddle -it --shm-size=8g  -v /home/server/yolov5n:/paddle paddlepaddle/paddle:2.5.0-gpu-cuda11.7-cudnn8.4-trt8.4 /bin/bash
 python convert_static.py --weights runs/train/exp/weights/best.pdparams --cfg ./yolov5n.yaml --data data/sl_coco.yaml --source crop.jpg
 ```
 # convert to paddlelite opencl
