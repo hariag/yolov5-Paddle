@@ -322,3 +322,16 @@ python export.py --weights yolov5s-cls.pdparams resnet50.pdparams --include padd
 
 
 </details>
+<details>
+	<summary>paddle-lite version</summary>
+```bash
+git clone --recursive https://github.com/PaddlePaddle/Paddle-Lite
+git checkout 90ab6224b
+	
+vim build.lite.linux.armv8.gcc.opencl/lite/api/python/setup.py
+PADDLELITE_COMMITE = "0.0.0"
+```
+	
+</details>
+
+
